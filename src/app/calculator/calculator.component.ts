@@ -28,16 +28,21 @@ export class CalculatorComponent implements OnInit{
   ) { }
 
   ngOnInit(){
-    this.calculatorService.getCurrencyList(API_XML)
-      .subscribe(response => {
-        this.currencyList = response;
-        this.currency = this.currencyList['Valute'][VALUTE_NAME];
+    // this.calculatorService.getCurrencyList(API_JSON2)
+    //   .subscribe(response => {
+    //     this.currencyList = response;
+    //     this.currency = this.currencyList['Valute'][VALUTE_NAME];
+    //
+    //     this.rub = this.currency.Value
+    //     this.date = this.currencyList.Timestamp;
+    //   }, error => {
+    //     this.errorMsg = error.message;
+    //   });
 
-        this.rub = this.currency.Value
-        this.date = this.currencyList.Timestamp;
-      }, error => {
-        this.errorMsg = error.message;
-      });
+    this.calculatorService.getCurrencyListXML(API_XML)
+      .subscribe(response => {
+        console.log(response);
+      })
 
   }
 

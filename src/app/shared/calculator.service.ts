@@ -17,14 +17,18 @@ export class CalculatorService {
   // Get data from server
   getCurrencyList(api): Observable<CurrencyList> {
     return this.http.get<CurrencyList>(api)
-      // .pipe(
-      //   catchError(error => {
-      //     // debugger;
-      //     console.log(error.message);
-      //     this.getCurrencyList(API_JSON2)
-      //     return throwError(error)
-      //   })
-      // );
+      .pipe(
+        catchError(error => {
+          // debugger;
+          console.log(error.message);
+          this.getCurrencyList(API_JSON2)
+          return throwError(error)
+        })
+      );
+  }
+
+  getCurrencyListXML(api) {
+    return this.http.get(api, { responseType: 'text'});
   }
 
   // Round a number to two decimal
