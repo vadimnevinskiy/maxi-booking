@@ -1,0 +1,18 @@
+<div class="calculator" *ngIf="currency; else errorTpl">
+  <h2 class="calculator__title">Курсы валют ЦБ РФ на <span> {{ date | date: 'dd.MM.yyyy' }} {{ date | date: 'HH:mm' }}</span></h2>
+  <div class="calculator__currency">
+    <span>&euro;</span><strong>{{ eur }}</strong>
+  </div>
+  <div class="calculator__currency">
+    <span class="calculator_round" (click)="RoundRub()">{{ roundedText }}</span>
+    <span>&#8381;</span><strong>{{ rub }}</strong>
+  </div>
+</div>
+<ng-template #errorTpl>
+  <div class="error">
+    <span>{{errorMsg}}</span>
+  </div>
+</ng-template>
+
+
+
