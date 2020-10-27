@@ -4,11 +4,34 @@
     <span>&euro;</span><strong>{{ inputDataValue }}</strong>
   </div>
   <div class="calculator__currency">
-    <span class="calculator_round" (click)="RoundHandler()">{{ roundedText }}</span>
+<!--    <span class="calculator_round" (click)="RoundHandler()">{{ roundedText }}</span>-->
     <span>&#8381;</span><strong>{{ amountResultValue }}</strong>
   </div>
 </div>
-<p class="help">{{helpTxt}}</p>
+
+
+
+<form class="form">
+  <div class="form__item">
+    <input type="radio" name="error_api" value="error_json" id="json_api" (change)="setAPIError($event)"/>
+    <label for="json_api">Отправлять запросы на несуществующий JSON API</label>
+  </div>
+  <div class="form__item">
+    <input type="radio" name="error_api" value="error_json" id="json_api" (change)="setAPIError($event)"/>
+    <label for="json_api">Отправлять запросы на несуществующий JSON API</label>
+  </div>
+  <div class="form__item">
+    <input type="radio" name="error_api" value="error_xml" id="xml_api" (change)="setAPIError($event)"/>
+    <label for="xml_api">Отправлять запросы на несуществующий XML API</label>
+  </div>
+  <div class="form__item">
+    <input type="radio" name="error_api" value="correct_all" id="correct_all" (change)="setAPIError($event)"/>
+    <label for="correct_all">Все подключения корректны</label>
+  </div>
+</form>
+
+
+<p class="help">Формат данных: {{helpTxt}}</p>
 
 
 <ng-template #errorTpl>

@@ -33,6 +33,20 @@
 }
 .help{
   text-align: right;
-  color: #cccccc;
   font-size: 12px;
+  opacity: 0.5;
+}
+
+.form{
+  margin: 20px 0px;
+  opacity: 0.5;
+}
+.form .form__item{
+  padding: 0px 0px 10px 0px;
+}
+.form .form__item input{
+  vertical-align: -1px;
+}
+.form .form__item label{
+  cursor: pointer;
 }
