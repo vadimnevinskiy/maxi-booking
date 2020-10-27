@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CurrencyList, CurrencyItem} from "../shared/interfaces";
 import {CalculatorService} from "../shared/calculator.service";
-import { VALUTE_NAME, API_JSON, API_XML, API_JSON2 } from "../shared/config";
+import { VALUTE_NAME, API_JSON, API_XML, API_XML2, API_JSON2 } from "../shared/config";
 
 
 @Component({
@@ -42,8 +42,8 @@ export class CalculatorComponent implements OnInit{
 
 
   ngOnInit(){
-    this.getXmlFromService(); // Get all data at XML format from calculatorService
-    // this.getJsonFromService(); // Get all data at JSON format from calculatorService
+    // this.getXmlFromService(); // Get all data at XML format from calculatorService
+    this.getJsonFromService(); // Get all data at JSON format from calculatorService
   }
 
 
@@ -70,6 +70,8 @@ export class CalculatorComponent implements OnInit{
               }
             }
           });
+      }, error => {
+        this.getJsonFromService(); // Get all data at JSON format from calculatorService
       })
   }
 
@@ -90,7 +92,7 @@ export class CalculatorComponent implements OnInit{
         this.amountResultValue = this.formattedResult; // For display in UI
 
       }, error => {
-        this.errorMsg = error.message;
+        this.getXmlFromService(); // Get all data at XML format from calculatorService
       });
   }
 
