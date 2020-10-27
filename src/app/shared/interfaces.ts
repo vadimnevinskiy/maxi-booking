@@ -1,11 +1,11 @@
 export interface CurrencyList {
   Date: string,
-  PreviousDate: string,
-  Timestamp: string,
-  Valute: any
+  PreviousDate?: string,
+  Timestamp?: string,
+  Valute?: any
 }
 
-export interface Currency {
+export interface CurrencyItem {
   ID: string,
   NumCode: string,
   CharCode: string,
