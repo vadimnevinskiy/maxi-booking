@@ -75,7 +75,7 @@ export class CalculatorComponent implements OnInit{
       }else{
         this.getXmlFromService(); // Get all data at JSON format from calculatorService
       }
-    }, 2000)
+    }, 10000)
   }
 
 
