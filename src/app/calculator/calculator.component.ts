@@ -144,13 +144,13 @@ export class CalculatorComponent implements OnInit{
   // Interval settings
   slower(){
     if(this.period > 1){ // Decrease timer tick
-      this.period = this.period - 1;
+      this.period --;
       clearInterval(this.timer); // Clear previous timer
       this.startMonitoring(); // Start new timer
     }
   }
   faster(){
-    this.period = this.period + 1; // Increase timer tick
+    this.period ++; // Increase timer tick
     clearInterval(this.timer); // Clear previous timer
     this.startMonitoring(); // Start new timer
   }
