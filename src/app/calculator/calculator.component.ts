@@ -34,6 +34,8 @@ export class CalculatorComponent implements OnInit{
   apiXml: string = API_XML; // Save API url for XML
   apiJson: string = API_JSON; // Save API url for JSON
 
+  period: number = 10; // Timer tick by default
+  timer: any;
 
   constructor(
     private calculatorService: CalculatorService,
@@ -65,7 +67,7 @@ export class CalculatorComponent implements OnInit{
 
   startMonitoring(){
     this.getXmlFromService(); // FIRST LOADING - Get all data at JSON format from calculatorService
-    setInterval(() => {
+    this.timer = setInterval(() => {
       if(this.apiXml == API_XML2){
         console.log('Request to error XML');
         this.getXmlFromService(); // Get all data at JSON format from calculatorService
@@ -75,7 +77,7 @@ export class CalculatorComponent implements OnInit{
       }else{
         this.getXmlFromService(); // Get all data at JSON format from calculatorService
       }
-    }, 10000)
+    }, this.period * 1000)
   }
 
 
@@ -138,4 +140,25 @@ export class CalculatorComponent implements OnInit{
       this.roundedText = "Округлить";
     }
   }
+
+  // Interval settings
+  slower(){
+    if(this.period > 1){ // Decrease timer tick
+      this.period = this.period - 1;
+      clearInterval(this.timer); // Clear previous timer
+      this.startMonitoring(); // Start new timer
+    }
+  }
+  faster(){
+    this.period = this.period + 1; // Increase timer tick
+    clearInterval(this.timer); // Clear previous timer
+    this.startMonitoring(); // Start new timer
+  }
+  stop(){
+    clearInterval(this.timer); // Clear previous timer
+  }
+  start(){
+    this.startMonitoring(); // Start new timer
+  }
+
 }

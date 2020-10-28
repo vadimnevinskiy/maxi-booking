@@ -50,3 +50,32 @@
 .form .form__item label{
   cursor: pointer;
 }
+
+.period_btn{
+  display: inline-block;
+  background: #cccccc;
+  padding: 10px 20px;
+  font-size: 20px;
+  margin: 0px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover{
+    background: #999999;
+  }
+
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+}
+.period_txt{
+  display: inline-block;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  vertical-align: -5px;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+}

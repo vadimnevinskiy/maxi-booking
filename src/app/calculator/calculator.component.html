@@ -13,6 +13,16 @@
 
 <form class="form">
   <div class="form__item">
+    <span class="period_btn" (click)="slower()">-</span>
+    <span class="period_txt">{{period}}</span>
+    <span class="period_btn" (click)="faster()">+</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="period_btn" (click)="stop()"> |&nbsp;| </span>
+    <span class="period_btn" (click)="start()">&rsaquo;</span>
+
+
+  </div>
+  <div class="form__item">
     <input type="radio" name="error_api" value="error_json" id="json_api" (change)="setAPIError($event)"/>
     <label for="json_api">Отправлять запросы на несуществующий JSON API</label>
   </div>
