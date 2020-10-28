@@ -17,7 +17,6 @@ export class CalculatorService {
       .pipe(
         catchError(error => {
           console.log(error.message);
-          // this.getCurrencyList(API_JSON2)
           return throwError(error)
         })
       );
